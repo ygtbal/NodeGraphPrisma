@@ -16,4 +16,12 @@ model Student {
   fullName String
   dept     String?
   enrolled Boolean @default(false)
+  profile Profile?
+}
+
+model Profile {
+  id Int @id @default(autoincrement())
+  student Student @relation(fields: [studentId], references: [id])
+  studentId Int
+  name String
 }
